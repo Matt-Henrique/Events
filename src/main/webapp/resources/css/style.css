@@ -1,0 +1,72 @@
+html {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	bottom: 0;
+	min-height: 100%;
+	position: relative;
+}
+
+#bloco {
+	min-height: 50px;
+}
+
+#footer {
+	background-color: black;
+	text-align: center;
+	position: absolute;
+	color: whitesmoke;
+	border: none;
+	width: 100%;
+	bottom: 0;
+}
+
+.ui-layout-unit-footer {
+	padding: 4px;
+	border: none;
+}
+
+.filterInput {
+	float: left;
+	width: 100px;
+	margin: 5px 3px 0 0;
+}
+
+.button-folder {
+	margin-left: 0 !important;
+	height: 88px;
+	width: 95px;
+}
+
+.button-folder, .button-folder span, button.button-folder.ui-state-default span,
+	.button-folder.ui-state-default span {
+	margin: 10px 0 0 10px !important;
+	font-weight: normal;
+	display: table;
+	left: 0;
+	top: 0;
+}
+
+.panel, .ui-panel .ui-panel-title, .ui-panel .ui-panel-content {
+	word-break: break-word;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+
+.ui-panel .ui-panel-titlebar {
+	padding: .5em 1em .3em;
+}
+
+.ui-lightbox-content-wrapper {
+	background-color: #000;
+}
+
+.ui-lightbox-caption-text {
+	word-break: break-all;
+}
