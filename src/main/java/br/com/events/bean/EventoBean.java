@@ -7,10 +7,9 @@ import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
-import javax.faces.view.ViewScoped;
 import javax.servlet.http.HttpSession;
 
 import org.omnifaces.util.Faces;
@@ -28,7 +27,7 @@ import org.omnifaces.util.Messages;
 public class EventoBean extends ImagemServlet implements Serializable {
 
 	HttpSession sessao = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-	String pathEvento = System.getProperty("user.home") + File.separatorChar + "Eventos" + File.separatorChar;
+	String pathEvento = System.getProperty("user.home") + File.separatorChar + "Events" + File.separatorChar;
 
 	private File[] eventos;
 
@@ -37,11 +36,11 @@ public class EventoBean extends ImagemServlet implements Serializable {
 	public File[] getEventos() {
 		return eventos;
 	}
-	
+
 	public String getEventosFiltered() {
 		return eventosFiltered;
 	}
-	
+
 	public void setEventosFiltered(String eventosFiltered) {
 		this.eventosFiltered = eventosFiltered;
 	}
@@ -50,10 +49,10 @@ public class EventoBean extends ImagemServlet implements Serializable {
 	public void listarDir() {
 		try {
 			File folder = new File(pathEvento);
-			File[] listOfFolders = folder.listFiles();
-
+			File[] listOfFolders = folder.listFiles(File::isDirectory);
+			
 			eventos = listOfFolders;
-
+			
 		} catch (RuntimeException erro) {
 			Messages.addGlobalError("Ocorreu um erro ao tentar listar os diretórios");
 			erro.printStackTrace();
@@ -74,7 +73,9 @@ public class EventoBean extends ImagemServlet implements Serializable {
 		File folder = new File(pathEvento);
 		File[] listOfFolders = folder.listFiles(new FileFilter() {
 			public boolean accept(File filter) {
-				return filter.getName().toLowerCase().contains(getEventosFiltered().toLowerCase());
+				if (filter.isDirectory())
+					return filter.getName().toLowerCase().contains(getEventosFiltered().toLowerCase());
+				return false;
 			}
 		});
 		eventos = listOfFolders;

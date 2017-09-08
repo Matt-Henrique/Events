@@ -28,7 +28,7 @@ public class ImagemServlet extends HttpServlet {
 
     public void init() throws ServletException {
 
-       this.imagePath = System.getProperty("user.home") + File.separatorChar + "Eventos" + File.separatorChar;
+       this.imagePath = System.getProperty("user.home") + File.separatorChar + "Events" + File.separatorChar;
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
