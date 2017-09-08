@@ -32,9 +32,16 @@ body {
 }
 
 .filterInput {
-	float: left;
-	width: 100px;
 	margin: 5px 3px 0 0;
+	width: 100px;
+	float: left;
+}
+
+.selectSort {
+	display: inline-table;
+	margin-right: 10px;
+	margin-top: 10px;
+	float: left;
 }
 
 .button-folder {

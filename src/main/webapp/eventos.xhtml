@@ -10,6 +10,11 @@
 		<h:form id="formListagem">
 			<p:panel header="Eventos">
 				<div align="right" style="float: right">
+					<h:selectOneRadio value="#{sortBean.option}" id="selectSort" styleClass="selectSort">
+						<f:selectItem itemLabel="Data" itemValue="date" />
+						<f:selectItem itemLabel="Nome" itemValue="name" />
+						<p:ajax process="@this" update="dataGrid" />
+					</h:selectOneRadio>
 					<p:inputText id="filter" value="#{eventoBean.eventosFiltered}"
 						placeholder="Pesquise..." styleClass="filterInput">
 						<p:ajax event="keyup" update="dataGrid"
