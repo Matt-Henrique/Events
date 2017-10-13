@@ -10,11 +10,11 @@
 		<h:form id="formListagem">
 			<p:panel header="Eventos">
 				<div align="right" style="float: right">
-					<h:selectOneRadio value="#{sortBean.option}" id="selectSort" styleClass="selectSort">
+					<!-- <h:selectOneRadio value="#{sortBean.option}" id="selectSort" styleClass="selectSort">
 						<f:selectItem itemLabel="Data" itemValue="date" />
 						<f:selectItem itemLabel="Nome" itemValue="name" />
 						<p:ajax process="@this" update="dataGrid" />
-					</h:selectOneRadio>
+					</h:selectOneRadio> -->
 					<p:inputText id="filter" value="#{eventoBean.eventosFiltered}"
 						placeholder="Pesquise..." styleClass="filterInput">
 						<p:ajax event="keyup" update="dataGrid"
@@ -23,7 +23,7 @@
 				</div>
 				<p:ajaxStatus>
 					<f:facet name="start">
-						<p:graphicImage library="images" name="loading.gif" height="40"
+						<p:graphicImage library="images" name="load.gif" height="40"
 							style="position: absolute; z-index: 1;" />
 					</f:facet>
 				</p:ajaxStatus>

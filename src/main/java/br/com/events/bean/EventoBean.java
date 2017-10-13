@@ -69,7 +69,7 @@ public class EventoBean extends ImagemServlet implements Serializable {
 	public void visualizarFotos(ActionEvent evento) throws IOException {
 		try {
 			sessao.setAttribute("EVENTO_SESSAO", evento.getComponent().getAttributes().get("eventoSelecionado"));
-			Faces.redirect("./fotos.xhtml");
+			Faces.redirect("./gallery/fotos.xhtml");
 		} catch (RuntimeException erro) {
 			Messages.addFlashGlobalError("Ocorreu um erro ao carregar a tela de arquivos da obra");
 			erro.printStackTrace();
