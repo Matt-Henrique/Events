@@ -1,12 +1,8 @@
 package br.com.events.bean;
 
 import java.io.File;
-
-
 import java.io.IOException;
 import java.nio.file.Files;
-
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,30 +15,32 @@ import javax.servlet.http.HttpServletResponse;
  * @since 1.0
  */
 
-@WebServlet("/image")    
+@WebServlet("/image")
 public class ImagemServlet extends HttpServlet {
 
- private static final long serialVersionUID = 1460571643688705941L;
+	private static final long serialVersionUID = 1460571643688705941L;
 
-    private String imagePath;
+	private String imagePath;
 
-    public void init() throws ServletException {
+	public void init() throws ServletException {
 
-       this.imagePath = System.getProperty("user.home") + File.separatorChar + "Events" + File.separatorChar;
-    }
+		this.imagePath = System.getProperty("user.home") + File.separatorChar + "eclipse" + File.separatorChar
+				+ "images" + File.separatorChar;
+	}
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-        String requestedImage = request.getParameter("imagem");
+		String requestedImage = request.getParameter("imagem");
 
-        File image = new File(imagePath, requestedImage);
+		File image = new File(imagePath, requestedImage);
 
-        String contentType = getServletContext().getMimeType(image.getName());
+		String contentType = getServletContext().getMimeType(image.getName());
 
-        response.reset();
-        response.setContentType(contentType);
-        response.setHeader("Content-Length", String.valueOf(image.length()));
+		response.reset();
+		response.setContentType(contentType);
+		response.setHeader("Content-Length", String.valueOf(image.length()));
 
-        Files.copy(image.toPath(), response.getOutputStream());
-    }
+		Files.copy(image.toPath(), response.getOutputStream());
+	}
 }

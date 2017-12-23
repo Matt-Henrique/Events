@@ -6,14 +6,12 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Comparator;
-
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.servlet.http.HttpSession;
-
 import org.omnifaces.util.Faces;
 import org.omnifaces.util.Messages;
 
@@ -29,7 +27,8 @@ import org.omnifaces.util.Messages;
 public class EventoBean extends ImagemServlet implements Serializable {
 
 	HttpSession sessao = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-	String pathEvento = System.getProperty("user.home") + File.separatorChar + "Events" + File.separatorChar;
+	String pathEvento = System.getProperty("user.home") + File.separatorChar + "eclipse" + File.separatorChar + "images"
+			+ File.separatorChar;
 
 	private File[] eventos;
 

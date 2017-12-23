@@ -35,20 +35,20 @@ public class ImagemBean extends ImagemServlet {
 	@PostConstruct
 	public void init() {
 		try {
-			File pathDir = new File(System.getProperty("user.home") + File.separatorChar + "Events" + File.separatorChar
-					+ evento + File.separatorChar);
-			
+			File pathDir = new File(System.getProperty("user.home") + File.separatorChar + "eclipse"
+					+ File.separatorChar + "images" + File.separatorChar + evento + File.separatorChar);
+
 			if (!pathDir.exists())
 				return;
-			
+
 			File[] arquivos = pathDir.listFiles(new FileFilter() {
 				public boolean accept(File jpg) {
 					return (jpg.getName().endsWith(".jpg"));
 				}
 			});
-			
+
 			images = new ArrayList<String>();
-			
+
 			if (arquivos != null) {
 				for (File arquivo : arquivos)
 					images.add(arquivo.getName());
